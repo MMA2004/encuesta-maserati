@@ -8,7 +8,7 @@ import DoneScreen from "../survey/components/DoneScreen";
 import QuestionBlock from "../survey/components/QuestionBlock";
 import { useSurveyForm } from "../survey/hooks/useSurveyForm";
 
-import Logo from "../../LOGO_MASERATI.jpg"
+import Logo from "../assets/LOGO_MASERATI.JPG"
 
 export default function MaseratiSurvey() {
     const { surveyId } = useParams();
