@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route, useNavigate} from "react-router-dom";
 import MaseratiSurvey from "./pages/MaseratiSurvey.jsx";
 
 function Inicio() {
