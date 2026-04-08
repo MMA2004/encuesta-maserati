@@ -47,9 +47,9 @@ export const QUESTIONS = [
         parentQuestionId: "q_demostracion_producto",
     },
     {
-        questionId: "q_eventos_maserati",
+        questionId: "q_eventos",
         type: "email",
-        label: "¿Quieres conocer más sobre los próximos eventos Maserati?",
+        label: "¿Quieres conocer más sobre los próximos eventos?",
         required: false,
     },
     {
@@ -78,5 +78,4 @@ export const EMAIL_DOMAINS = [
     "yahoo.com",
     "icloud.com",
     "proton.me",
-    "empresa.com",
 ];
