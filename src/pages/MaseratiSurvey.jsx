@@ -37,7 +37,7 @@ export default function MaseratiSurvey() {
 
             <div className="container-fluid py-4 px-3">
                 <div className="text-center mb-3">
-                    <img alt={"Logo maserti"} src={Logo} style={styles.img}/>
+                    <img alt={"Logo maserti"} src={Logo} style={styles.img} />
                     <div className="msr-sub" style={styles.brandSub}>
                         Satisfacción de la experiencia en concesionario
                     </div>

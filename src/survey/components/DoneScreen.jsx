@@ -1,5 +1,5 @@
 import React from "react";
-import TridentMark from "./TridentMark";
+import Logo from "../../assets/Hcoll_blanco.png";
 import { styles } from "../styles/maseratiStyles";
 
 export default function DoneScreen() {
@@ -13,10 +13,7 @@ export default function DoneScreen() {
 
             <div className="container-fluid py-4 px-3">
                 <div className="text-center mb-3">
-                    <TridentMark />
-                    <div className="mt-2 msr-title" style={styles.brandTitle}>
-                        MASERATI
-                    </div>
+                    <img alt={"Logo HCollection"} src={Logo} style={styles.img} />
                     <div className="msr-sub" style={styles.brandSub}>
                         Gracias por su visita
                     </div>
@@ -24,8 +21,8 @@ export default function DoneScreen() {
 
                 <div className="card border-0 shadow-lg" style={styles.card}>
                     <div className="card-body p-3 p-md-5 text-center">
-                        <i className="bi bi-check2-circle text-success" style={{ fontSize: 42 }} />
-                        <h3 className="mt-3 mb-2" style={{ letterSpacing: "0.06em" }}>
+                        <i className="bi bi-check2-circle" style={{ fontSize: 42, color: "#FFDF73" }} />
+                        <h3 className="mt-3 mb-2" style={{ letterSpacing: "0.06em", color: "#FFDF73" }}>
                             Respuesta enviada
                         </h3>
                         <p className="text-white-50 mb-0">
@@ -35,7 +32,7 @@ export default function DoneScreen() {
                 </div>
 
                 <div className="text-center mt-3 text-white-50" style={{ fontSize: 11, letterSpacing: "0.12em" }}>
-                    Maserati S.p.A. © {new Date().getFullYear()}
+                    Powered by Gibra Company
                 </div>
             </div>
         </div>
