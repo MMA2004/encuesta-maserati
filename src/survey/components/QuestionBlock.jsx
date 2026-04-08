@@ -45,6 +45,17 @@ export default function QuestionBlock({
                 <EmailDomainInput value={value} onChange={onChange} />
             )}
 
+            {q.type === "tel" && (
+                <input
+                    type="tel"
+                    className="form-control"
+                    value={value || ""}
+                    placeholder={q.placeholder || ""}
+                    onChange={(e) => onChange(e.target.value)}
+                    style={styles.inputDark}
+                />
+            )}
+
             {q.type === "text" && (
                 <textarea
                     className="form-control"
@@ -54,6 +65,20 @@ export default function QuestionBlock({
                     onChange={(e) => onChange(e.target.value)}
                     style={styles.textarea}
                 />
+            )}
+
+            {q.type === "select" && (
+                <select
+                    className="form-select"
+                    value={value || ""}
+                    onChange={(e) => onChange(e.target.value)}
+                    style={styles.selectDark}
+                >
+                    <option value="" disabled>Seleccione una opción...</option>
+                    {(q.choices || []).map((c) => (
+                        <option key={c} value={c}>{c}</option>
+                    ))}
+                </select>
             )}
 
             {commentQ && showComment && (

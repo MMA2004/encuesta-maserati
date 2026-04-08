@@ -2,7 +2,7 @@ export const styles = {
     page: {
         minHeight: "100vh",
         width: "100vw",
-        background: "#000814",
+        background: "#000000",
         color: "white",
         position: "relative",
         overflowX: "hidden",
@@ -12,7 +12,7 @@ export const styles = {
     img: {
         maxWidth: "100%",
         height: "auto",
-        maxHeight: "200px",   // ajusta según tu diseño
+        maxHeight: "250px",   // ajusta según tu diseño
         margin: "0 auto",
         display: "block",
         objectFit: "contain"
@@ -21,14 +21,14 @@ export const styles = {
         position: "absolute",
         inset: 0,
         background:
-            "radial-gradient(800px 400px at 15% 10%, rgba(21, 75, 155, 0.32), transparent 60%)",
+            "radial-gradient(800px 400px at 15% 10%, rgba(212, 175, 55, 0.15), transparent 60%)",
         pointerEvents: "none",
     },
     bgGlowB: {
         position: "absolute",
         inset: 0,
         background:
-            "radial-gradient(900px 500px at 85% 85%, rgba(11, 37, 69, 0.42), transparent 65%)",
+            "radial-gradient(900px 500px at 85% 85%, rgba(184, 134, 11, 0.18), transparent 65%)",
         pointerEvents: "none",
     },
     noise: {
@@ -43,6 +43,8 @@ export const styles = {
         background: "rgba(255,255,255,0.06)",
         backdropFilter: "blur(12px)",
         borderRadius: 18,
+        border: "1px solid rgba(212, 175, 55, 0.25)",
+        boxShadow: "0 8px 32px rgba(212, 175, 55, 0.05)",
     },
     brandTitle: {
         fontSize: 24,
@@ -61,7 +63,7 @@ export const styles = {
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         fontSize: 11,
-        color: "rgba(255,255,255,0.78)",
+        color: "#E0C87A",
     },
     labelMuted: {
         letterSpacing: "0.06em",
@@ -72,13 +74,13 @@ export const styles = {
     textarea: {
         background: "rgba(0,0,0,0.25)",
         color: "white",
-        border: "1px solid rgba(255,255,255,0.12)",
+        border: "1px solid rgba(212, 175, 55, 0.3)",
         borderRadius: 14,
         boxShadow: "none",
     },
     divider: {
         height: 1,
-        background: "rgba(255,255,255,0.08)",
+        background: "rgba(212, 175, 55, 0.2)",
         marginTop: 16,
     },
     submit: {
@@ -86,13 +88,16 @@ export const styles = {
         letterSpacing: "0.08em",
         textTransform: "uppercase",
         fontWeight: 750,
+        background: "linear-gradient(135deg, #FFDF73 0%, #D4AF37 100%)",
+        color: "#000",
+        border: "none",
     },
 
     // email (dark)
     inputDark: {
         background: "rgba(0,0,0,0.25)",
         color: "white",
-        border: "1px solid rgba(255,255,255,0.12)",
+        border: "1px solid rgba(212, 175, 55, 0.3)",
         borderRadius: 14,
         boxShadow: "none",
     },
@@ -101,18 +106,18 @@ export const styles = {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        border: "1px solid rgba(255,255,255,0.12)",
+        border: "1px solid rgba(212, 175, 55, 0.3)",
         borderRadius: 14,
         background: "rgba(0,0,0,0.25)",
-        color: "white",
+        color: "#D4AF37",
         fontWeight: 800,
         userSelect: "none",
         minWidth: 44,
     },
     selectDark: {
-        backgroundColor: "rgba(0,0,0,0.25)",
-        color: "white",
-        border: "1px solid rgba(255,255,255,0.12)",
+        backgroundColor: "#0A0A0A",
+        color: "#FFDF73",
+        border: "1px solid rgba(212, 175, 55, 0.4)",
         borderRadius: 14,
         boxShadow: "none",
         outline: "none",
@@ -143,8 +148,18 @@ export const styles = {
     }
 
     .form-control:focus, .form-select:focus{
-      box-shadow: none !important;
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.4) !important;
+      border-color: #D4AF37 !important;
       outline: none !important;
+    }
+
+    .form-control::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+    
+    .form-select option {
+      background-color: #0A0A0A !important;
+      color: #FFDF73 !important;
     }
   `,
 };

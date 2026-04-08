@@ -26,7 +26,14 @@ export function useSurveyForm({ surveyId }) {
     const [values, setValues] = useState(initial);
 
     const setVal = useCallback((questionId, v) => {
-        setValues((prev) => ({ ...prev, [questionId]: v }));
+        setValues((prev) => {
+            const next = { ...prev, [questionId]: v };
+            // Si cambia la agencia, borramos el representante actual
+            if (questionId === "q_agencia" && prev["q_agencia"] !== v) {
+                next["q_representante"] = "";
+            }
+            return next;
+        });
     }, []);
 
     // Limpia comentarios cuando parent ya no es Malo/Muy malo

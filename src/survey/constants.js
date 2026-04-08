@@ -2,6 +2,18 @@ export const API_BASE = import.meta.env.VITE_SURVEYS_API_BASE;
 
 export const QUESTIONS = [
     {
+        questionId: "q_agencia",
+        type: "select",
+        label: "Agencia que visitó",
+        required: true,
+    },
+    {
+        questionId: "q_representante",
+        type: "select",
+        label: "Representante de ventas",
+        required: true,
+    },
+    {
         questionId: "q_rating",
         type: "stars",
         label: "Calificación general de su visita",
@@ -39,6 +51,13 @@ export const QUESTIONS = [
         type: "email",
         label: "¿Quieres conocer más sobre los próximos eventos Maserati?",
         required: false,
+    },
+    {
+        questionId: "q_telefono",
+        type: "tel",
+        label: "Número de teléfono",
+        required: false,
+        placeholder: " ",
     },
     {
         questionId: "q_comentarios_generales",

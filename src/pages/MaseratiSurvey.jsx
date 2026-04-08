@@ -7,8 +7,9 @@ import { styles } from "../survey/styles/maseratiStyles";
 import DoneScreen from "../survey/components/DoneScreen";
 import QuestionBlock from "../survey/components/QuestionBlock";
 import { useSurveyForm } from "../survey/hooks/useSurveyForm";
+import { AGENCIAS_DATA, LISTA_AGENCIAS } from "../survey/data/agencias";
 
-import Logo from "../assets/LOGO_MASERATI.JPG"
+import Logo from "../assets/Hcoll_blanco.png"
 
 export default function MaseratiSurvey() {
     const { surveyId } = useParams();
@@ -49,12 +50,12 @@ export default function MaseratiSurvey() {
                                 <div className="text-white-50 small" style={{ letterSpacing: "0.14em" }}>
                                     ENCUESTA
                                 </div>
-                                <h2 className="mb-0" style={{ fontWeight: 650, letterSpacing: "0.03em", fontSize: 22 }}>
+                                <h2 className="mb-0" style={{ fontWeight: 650, letterSpacing: "0.03em", fontSize: 22, color: "#FFDF73" }}>
                                     Su opinión importa
                                 </h2>
                             </div>
 
-                            <span className="badge rounded-pill text-bg-dark" style={{ letterSpacing: "0.10em" }}>
+                            <span className="badge rounded-pill text-bg-dark" style={{ letterSpacing: "0.10em", border: "1px solid rgba(212, 175, 55, 0.3)", color: "#FFDF73" }}>
                                 2 min
                             </span>
                         </div>
@@ -74,17 +75,26 @@ export default function MaseratiSurvey() {
                             className="d-grid gap-4"
                         >
                             {QUESTIONS.filter((q) => q.type !== "text_comentario").map((q) => {
-                                const commentQ = q.type === "choice5" ? commentByParent[q.questionId] : null;
+                                const injectedQ = { ...q };
+                                if (q.questionId === "q_agencia") {
+                                    injectedQ.choices = LISTA_AGENCIAS;
+                                }
+                                if (q.questionId === "q_representante") {
+                                    const currentAgency = values["q_agencia"];
+                                    injectedQ.choices = currentAgency && AGENCIAS_DATA[currentAgency] ? AGENCIAS_DATA[currentAgency] : [];
+                                }
+
+                                const commentQ = injectedQ.type === "choice5" ? commentByParent[injectedQ.questionId] : null;
                                 const showComment =
-                                    q.type === "choice5" &&
-                                    NEGATIVE_CHOICES.has(String(values[q.questionId] || ""));
+                                    injectedQ.type === "choice5" &&
+                                    NEGATIVE_CHOICES.has(String(values[injectedQ.questionId] || ""));
 
                                 return (
                                     <QuestionBlock
-                                        key={q.questionId}
-                                        q={q}
-                                        value={values[q.questionId]}
-                                        onChange={(v) => setVal(q.questionId, v)}
+                                        key={injectedQ.questionId}
+                                        q={injectedQ}
+                                        value={values[injectedQ.questionId]}
+                                        onChange={(v) => setVal(injectedQ.questionId, v)}
                                         commentQ={commentQ}
                                         showComment={Boolean(commentQ && showComment)}
                                         commentValue={commentQ ? values[commentQ.questionId] : ""}
